@@ -17,27 +17,27 @@ const tasks = [
       completed: false,
       index: 3,
     },
-  ];
+];
 
-  function renderTasks() {
-    const tasksList = document.getElementById("tasks");
-    // Sort the tasks array based on the values of the index property of each task object
-    tasks.sort((a, b) => a.index - b.index);
-  
-    tasks.forEach((task) => {
-      const listItem = document.createElement("li");
-      const checkbox = document.createElement("input");
-      checkbox.type = "checkbox";
-      checkbox.checked = task.completed;
-      const label = document.createElement("label");
-      label.textContent = task.description;
-      listItem.appendChild(checkbox);
-      listItem.appendChild(label);
+function renderTasks() {
+const tasksList = document.getElementById("tasks");
+// Sort the tasks array based on the values of the index property of each task object
+tasks.sort((a, b) => a.index - b.index);
 
-      listItem.classList.add(task.completed ? "completed" : "incomplete");
+tasks.forEach((task) => {
+    const listItem = document.createElement("li");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = task.completed;
+    const label = document.createElement("label");
+    label.textContent = task.description;
+    listItem.appendChild(checkbox);
+    listItem.appendChild(label);
 
-      tasksList.appendChild(listItem);
-    });
-  }
+    listItem.classList.add(task.completed ? "completed" : "incomplete");
+
+    tasksList.appendChild(listItem);
+  });
+}
   
   renderTasks();
