@@ -1,3 +1,67 @@
+html {
+  font-size: 62.5%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    background-color: bisque;
+  background-color: #ededed;
+}
+
+.container {
+  background-color: white;
+  width: 30%;
+  min-width: 400px;
+  margin: 2rem auto;
+  font-size: 1.4rem;
+  box-shadow: 0 7px 8px rgb(191, 191, 191);
+}
+
+.container ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.container li {
+  list-style: none;
+  padding: 1rem 1rem;
+  border-top: solid rgb(210, 210, 210) 1px;
+}
+
+.container input {
+  margin-right: 0.5rem;
+}
+
+.taskTime {
+  border-bottom: solid rgb(210, 210, 210) 1px;
+}
+
+.addTaskField {
+  font-style: italic;
+  color: gray;
+}
+
+.taskTime,
+.addTaskField {
+  padding: 1rem 1rem;
+}
+
+.completedButton {
+  text-align: center;
+  padding: 1rem 1rem;
+  background-color: #ededed;
+  color: gray;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.incomplete {
+  color: black;
 }
