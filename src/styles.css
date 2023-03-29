@@ -33,8 +33,17 @@ body {
   border-top: solid rgb(210, 210, 210) 1px;
 }
 
+.container li button {
+  margin-left: 2rem;
+}
+
 .container input {
   margin-right: 0.5rem;
+  border: none;
+}
+
+.container input:focus {
+  outline: #fff;
 }
 
 .taskTime {
