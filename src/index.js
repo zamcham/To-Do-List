@@ -1,43 +1,27 @@
 import './styles.css';
+import {
+  renderTasks, addTask, deleteTask,
+} from './task.js';
 
-// Array of tasks objects
-const tasks = [
-  {
-    description: 'Buy milk',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'Take out the trash',
-    completed: false,
-    index: 2,
-  },
-  {
-    description: 'Do laundry',
-    completed: false,
-    index: 3,
-  },
-];
+// Call renderTasks when the page loads to display existing tasks
+document.addEventListener('DOMContentLoaded', renderTasks);
 
-function renderTasks() {
-  const tasksList = document.getElementById('tasks');
-  // Sort the tasks array based on the values of the index property of each task object
-  tasks.sort((a, b) => a.index - b.index);
+// Add event listener for form submission to add a new task
+const input = document.getElementById('new-task');
+input.addEventListener('keypress', (event) => {
+  if (event.keyCode === 13) { // 13 is the key code for Enter
+    event.preventDefault(); // prevent the default form submission
+    // do something, like call a function to add the task
+    const description = input.value;
+    if (description) {
+      addTask(description);
+      input.value = '';
+    }
+  }
+});
 
-  tasks.forEach((task) => {
-    const listItem = document.createElement('li');
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.checked = task.completed;
-    const label = document.createElement('label');
-    label.textContent = task.description;
-    listItem.appendChild(checkbox);
-    listItem.appendChild(label);
-
-    listItem.classList.add(task.completed ? 'completed' : 'incomplete');
-
-    tasksList.appendChild(listItem);
-  });
-}
-
-renderTasks();
+// Add event listener for "Clear All Completed" button to delete all completed tasks
+const clearCompletedButton = document.querySelector('.completedButton');
+clearCompletedButton.addEventListener('click', () => {
+  deleteTask();
+});
