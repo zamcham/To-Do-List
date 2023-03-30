@@ -1,4 +1,5 @@
 import './styles.css';
+import { AddCheckBox } from './completion';
 
 // Get tasks from localStorage, or create an empty array if it doesn't exist
 const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -9,7 +10,7 @@ function updateIndexes() {
   }
 }
 
-function saveTasks() {
+export function saveTasks() {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
@@ -38,15 +39,9 @@ export function renderTasks() {
 
   tasks.forEach((task) => {
     const listItem = document.createElement('li');
-
     const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.checked = task.completed;
-    checkbox.addEventListener('change', () => {
-      task.completed = checkbox.checked;
-      saveTasks(); // Update localStorage when task is checked/unchecked
-      listItem.classList.toggle('completed');
-    });
+
+    AddCheckBox(checkbox, task, listItem);
 
     const label = document.createElement('input');
     label.type = 'text';
