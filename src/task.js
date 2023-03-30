@@ -1,5 +1,5 @@
 import './styles.css';
-import { AddCheckBox } from './completion';
+import AddCheckBox from './completion.js';
 
 // Get tasks from localStorage, or create an empty array if it doesn't exist
 const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -10,7 +10,7 @@ function updateIndexes() {
   }
 }
 
-export function saveTasks() {
+function saveTasks() {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
