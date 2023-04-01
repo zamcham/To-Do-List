@@ -58,7 +58,7 @@ To-do list is a tool that helps to organize your day. It simply lists the things
 
 ## 🚀 Live Demo Coming Soon
 
-- [Live Demo Link Coming Soon](#)
+- [Click here for a live demo](https://zamcham.github.io/To-Do-List/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
