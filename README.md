@@ -70,7 +70,7 @@ This live demo is really easy to navigate, just click on the live demo link and 
 
 ### Prerequisites
 
-In order to run this project you need: A browser, tha's all!
+In order to run this project you need to run `npm run start`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
