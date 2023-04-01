@@ -67,6 +67,13 @@ body {
   color: gray;
 }
 
+#clearButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: gray;
+}
+
 .completed {
   text-decoration: line-through;
 }
