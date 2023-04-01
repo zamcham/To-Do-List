@@ -66,11 +66,10 @@ To-do list is a tool that helps to organize your day. It simply lists the things
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-This live demo is really easy to navigate, just click on the live demo link and feel free to shrink or expand your browser window.
-
+Clone the project and run the command `npm run start`, in case you get any error, try `HOST=0.0.0.0 npm run start`
 ### Prerequisites
 
-In order to run this project you need to run `npm run start`
+need to have Node.js installed 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
