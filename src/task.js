@@ -1,6 +1,6 @@
 import './styles.css';
 // import AddCheckBox from './completion.js';
-import { tasks, AddCheckBox } from './completion.js';
+import AddCheckBox, { tasks } from './completion.js';
 
 function updateIndexes() {
   for (let i = 0; i < tasks.length; i += 1) {

@@ -1,10 +1,10 @@
 import 'jest-localstorage-mock';
-import { addTask } from './task';
+import { addTask } from './task.js';
 
 global.TextEncoder = require('text-encoding').TextEncoder;
 const { JSDOM } = require('jsdom');
 
-const dom = new JSDOM(`<!DOCTYPE html><html><head></head><body></body></html>`);
+const dom = new JSDOM('<!DOCTYPE html><html><head></head><body></body></html>');
 global.window = dom.window;
 global.document = dom.window.document;
 
@@ -37,7 +37,9 @@ describe('addTask', () => {
     addTask(newTask);
 
     // import completion.js after setting the HTML content
+    /* eslint-disable global-require */
     require('./completion.js');
+    /* eslint-enable global-require */
 
     const tasks = JSON.parse(localStorage.getItem('tasks'));
     expect(tasks).toHaveLength(1);
