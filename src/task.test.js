@@ -1,5 +1,6 @@
 import 'jest-localstorage-mock';
 import { addTask } from './task';
+
 global.TextEncoder = require('text-encoding').TextEncoder;
 const { JSDOM } = require('jsdom');
 
