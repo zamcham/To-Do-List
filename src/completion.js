@@ -15,9 +15,11 @@ export default function AddCheckBox(checkbox, task, listItem) {
 }
 
 const clearCompletedButton = document.getElementById('clearButton');
-clearCompletedButton.addEventListener('click', () => {
-  tasks = tasks.filter((task) => !task.completed);
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-});
+if (clearCompletedButton != null) {
+  clearCompletedButton.addEventListener('click', () => {
+    tasks = tasks.filter((task) => !task.completed);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  });
+}
 
 export { tasks };
