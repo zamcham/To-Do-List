@@ -1,6 +1,6 @@
 import './styles.css';
 import {
-  renderTasks, addTask, deleteTask,
+  renderTasks, addTask,
 } from './task.js';
 
 // Call renderTasks when the page loads to display existing tasks

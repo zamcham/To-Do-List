@@ -53,9 +53,9 @@ describe('deleteTask', () => {
   });
 
   test('removes a task from the tasks array and localStorage by index', () => {
-    const task1 = { description: 'Task 1', completed: false, index: 0};
-    const task2 = { description: 'Task 2', completed: true, index: 1};
-    const task3 = { description: 'Task 3', completed: false, index: 2};
+    const task1 = { description: 'Task 1', completed: false, index: 0 };
+    const task2 = { description: 'Task 2', completed: true, index: 1 };
+    const task3 = { description: 'Task 3', completed: false, index: 2 };
     localStorage.setItem('tasksObject', JSON.stringify([task1, task2, task3]));
 
     // import completion.js after setting the localStorage
@@ -64,7 +64,6 @@ describe('deleteTask', () => {
     /* eslint-enable global-require */
 
     const tasks = JSON.parse(localStorage.getItem('tasksObject'));
-    console.log(tasks);
     deleteTask(1, tasks); // delete task2 by index
 
     expect(tasks).toHaveLength(2);
