@@ -19,9 +19,3 @@ input.addEventListener('keypress', (event) => {
     }
   }
 });
-
-// Add event listener for "Clear All Completed" button to delete all completed tasks
-const clearCompletedButton = document.querySelector('.completedButton');
-clearCompletedButton.addEventListener('click', () => {
-  deleteTask();
-});

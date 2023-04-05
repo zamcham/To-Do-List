@@ -22,7 +22,8 @@ if (clearCompletedButton != null) {
   clearCompletedButton.addEventListener('click', () => {
     tasks = tasks.filter((task) => !task.completed);
     localStorage.setItem('tasks', JSON.stringify(tasks));
+    location.reload()
   });
 }
 
-export { tasks };
+export { tasks, clearCompletedButton };

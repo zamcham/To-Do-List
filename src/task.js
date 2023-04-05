@@ -1,6 +1,6 @@
 import './styles.css';
-// import AddCheckBox from './completion.js';
 import AddCheckBox, { tasks } from './completion.js';
+export const taskObj = tasks;
 
 function updateIndexes() {
   for (let i = 0; i < tasks.length; i += 1) {
@@ -12,13 +12,13 @@ function saveTasks() {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-export function deleteTask(index) {
+export function deleteTask(index, taskObj) {
   if (index !== undefined) {
-    tasks.splice(index, 1);
+    taskObj.splice(index, 1);
   } else {
-    for (let i = tasks.length - 1; i >= 0; i -= 1) {
-      if (tasks[i].completed) {
-        tasks.splice(i, 1);
+    for (let i = taskObj.length - 1; i >= 0; i -= 1) {
+      if (taskObj[i].completed) {
+        taskObj.splice(i, 1);
       }
     }
   }
@@ -57,7 +57,7 @@ export function renderTasks() {
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
     deleteButton.addEventListener('click', () => {
-      deleteTask(tasks.indexOf(task));
+      deleteTask(tasks.indexOf(task), taskObj);
     });
 
     listItem.appendChild(checkbox);
