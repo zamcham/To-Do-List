@@ -19,3 +19,5 @@ clearCompletedButton.addEventListener('click', () => {
   tasks = tasks.filter((task) => !task.completed);
   localStorage.setItem('tasks', JSON.stringify(tasks));
 });
+
+export { tasks };

@@ -1,8 +1,6 @@
 import './styles.css';
 import AddCheckBox from './completion.js';
-
-// Get tasks from localStorage, or create an empty array if it doesn't exist
-const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+import { tasks } from './completion.js';
 
 function updateIndexes() {
   for (let i = 0; i < tasks.length; i += 1) {
