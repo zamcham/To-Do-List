@@ -1,7 +1,7 @@
 /* eslint-disable import/no-mutable-exports */
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 /* eslint-enable import/no-mutable-exports */
-//Disabled because it gives error as a const since it's changed on line 23
+// Disabled because it gives error as a const since it's changed on line 23
 
 function saveTasks() {
   localStorage.setItem('tasks', JSON.stringify(tasks));
