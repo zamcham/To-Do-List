@@ -1,6 +1,6 @@
 import 'jest-localstorage-mock';
 import { addTask, updateTaskValue } from './task.js';
-import AddCheckBox, { ClearCompletedTasks } from './completion.js';
+import AddCheckBox from './completion.js';
 
 global.TextEncoder = require('text-encoding').TextEncoder;
 const { JSDOM } = require('jsdom');
@@ -136,16 +136,21 @@ describe('ClearCompletedTasks', () => {
 
   test('should remove completed tasks from the tasks array and localStorage', () => {
     // Reset the tasks array to its initial state before each test
-    const task01 = { description: 'Task 1', completed: true, index: 0 };
-    const task02 = { description: 'Task 2', completed: false, index: 1 };
-    const task03 = { description: 'Task 3', completed: true, index: 2 };
+    const task01 = { description: 'Task 01', completed: true, index: 0 };
+    const task02 = { description: 'Task 02', completed: false, index: 1 };
+    const task03 = { description: 'Task 03', completed: true, index: 2 };
     localStorage.setItem('tasksObj', JSON.stringify([task01, task02, task03]));
 
+    /* eslint-disable global-require */
+    const { ClearCompletedTasks } = require('./completion.js');
+    /* eslint-enable global-require */
     const tasksToCheck = JSON.parse(localStorage.getItem('tasksObj'));
-    console.log(tasksToCheck);
 
     ClearCompletedTasks(tasksToCheck);
-    expect(tasksToCheck).toHaveLength(1);
-    expect(tasksToCheck[0].completed).toEqual(false);
+
+    const updatedTasks = JSON.parse(localStorage.getItem('tasksToCheck'));
+
+    expect(updatedTasks).toHaveLength(1);
+    expect(updatedTasks[0].completed).toEqual(false);
   });
 });

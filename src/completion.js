@@ -17,9 +17,10 @@ export default function AddCheckBox(checkbox, task, listItem) {
   });
 }
 
-export function ClearCompletedTasks(tasks) {
-  tasks = tasks.filter((task) => !task.completed);
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+export function ClearCompletedTasks(tasksToCheck) {
+  tasksToCheck = tasksToCheck.filter((task) => !task.completed);
+  localStorage.setItem('tasksToCheck', JSON.stringify(tasksToCheck));
+  console.log(tasksToCheck);
 }
 
 const clearCompletedButton = document.getElementById('clearButton');
@@ -28,5 +29,6 @@ if (clearCompletedButton != null) {
     ClearCompletedTasks(tasks);
   });
 }
+
 
 export { tasks, clearCompletedButton };
