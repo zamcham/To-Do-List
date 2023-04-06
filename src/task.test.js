@@ -1,5 +1,6 @@
 import 'jest-localstorage-mock';
 import { addTask, updateTaskValue } from './task.js';
+import AddCheckBox from './completion.js';
 
 global.TextEncoder = require('text-encoding').TextEncoder;
 const { JSDOM } = require('jsdom');
@@ -98,5 +99,11 @@ describe('updateTaskValue', () =>{
 
     // Check if the task description has been updated correctly
     expect(task.description).toEqual('New description');
+  });
+});
+
+describe('AddCheckBox', () => {
+  beforeEach(() => {
+    localStorage.clear(); // Clear localStorage before each test
   });
 });
