@@ -1,5 +1,5 @@
 import 'jest-localstorage-mock';
-import { addTask } from './task.js';
+import { addTask, updateTaskValue } from './task.js';
 
 global.TextEncoder = require('text-encoding').TextEncoder;
 const { JSDOM } = require('jsdom');
@@ -69,5 +69,34 @@ describe('deleteTask', () => {
     expect(tasks).toHaveLength(2);
     expect(tasks[0]).toEqual(task1);
     expect(tasks[1]).toEqual(task3);
+  });
+});
+
+describe('updateTaskValue', () =>{
+  beforeEach(() => {
+    localStorage.clear(); // Clear localStorage before each test
+  });
+
+  test('Should update the task value', () => {
+    //create tasks array
+    tasks = [];
+    // Create a test task object
+    const task = {
+      description: 'Task 1',
+      completed: false,
+      index: 1,
+    };
+    // Add the task to the tasks array
+    tasks.push(task);
+
+    // Create a new label element to use as the label parameter
+    const label = document.createElement('input');
+    label.value = 'New description';
+
+    // Call updateTaskValue() with the test task and label
+    updateTaskValue(task, label);
+
+    // Check if the task description has been updated correctly
+    expect(task.description).toEqual('New description');
   });
 });
