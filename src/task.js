@@ -13,6 +13,11 @@ function saveTasks() {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
+export function updateTaskValue(task, label) {
+  task.description = label.value;
+  saveTasks();
+}
+
 export function deleteTask(index, taskObj) {
   if (index !== undefined) {
     taskObj.splice(index, 1);
@@ -51,8 +56,7 @@ export function renderTasks() {
     });
 
     label.addEventListener('blur', () => {
-      task.description = label.value;
-      saveTasks();
+      updateTaskValue(task, label);
     });
 
     const deleteButton = document.createElement('button');

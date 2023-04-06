@@ -1,5 +1,5 @@
 /* eslint-disable import/no-mutable-exports */
-let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 /* eslint-enable import/no-mutable-exports */
 // Disabled because it gives error as a const since it's changed on line 23
 
@@ -17,12 +17,15 @@ export default function AddCheckBox(checkbox, task, listItem) {
   });
 }
 
+export function ClearCompletedTasks(tasksToCheck) {
+  tasksToCheck = tasksToCheck.filter((task) => !task.completed);
+  localStorage.setItem('tasksToCheck', JSON.stringify(tasksToCheck));
+}
+
 const clearCompletedButton = document.getElementById('clearButton');
 if (clearCompletedButton != null) {
   clearCompletedButton.addEventListener('click', () => {
-    tasks = tasks.filter((task) => !task.completed);
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-    window.location.reload();
+    ClearCompletedTasks(tasks);
   });
 }
 
