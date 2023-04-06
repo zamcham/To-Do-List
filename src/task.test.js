@@ -50,6 +50,9 @@ describe('addTask', () => {
     /* eslint-enable global-require */
 
     const tasks = JSON.parse(localStorage.getItem('tasks'));
+    const newTaskDom = document.querySelector('li');
+
+    expect(newTaskDom).toBeTruthy();
     expect(tasks).toHaveLength(1);
     expect(tasks[0].description).toBe(newTask);
   });
@@ -144,7 +147,9 @@ describe('ClearCompletedTasks', () => {
     ClearCompletedTasks(tasksToCheck);
 
     const updatedTasks = JSON.parse(localStorage.getItem('tasksToCheck'));
+    const newTaskDom = document.querySelector('li');
 
+    expect(newTaskDom).toBeTruthy();
     expect(updatedTasks).toHaveLength(1);
     expect(updatedTasks[0].completed).toEqual(false);
   });
