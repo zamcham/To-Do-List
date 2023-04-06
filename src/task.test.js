@@ -12,7 +12,7 @@ global.document = dom.window.document;
 beforeAll(() => {
   Object.defineProperty(window, 'location', {
     value: { reload: jest.fn() },
-    writable: true
+    writable: true,
   });
 });
 
@@ -80,22 +80,18 @@ describe('deleteTask', () => {
   });
 });
 
-describe('updateTaskValue', () =>{
+describe('updateTaskValue', () => {
   beforeEach(() => {
     localStorage.clear(); // Clear localStorage before each test
   });
 
   test('Should update the task value', () => {
-    //create tasks array
-    tasks = [];
     // Create a test task object
     const task = {
       description: 'Task 1',
       completed: false,
       index: 1,
     };
-    // Add the task to the tasks array
-    tasks.push(task);
 
     // Create a new label element to use as the label parameter
     const label = document.createElement('input');
@@ -114,7 +110,6 @@ describe('AddCheckBox', () => {
     localStorage.clear(); // Clear localStorage before each test
   });
 
-
   test('it should update the task completed status when checkbox is checked/unchecked', () => {
     const checkbox = document.createElement('input');
     const task = { description: 'Task 1', completed: false };
@@ -122,7 +117,7 @@ describe('AddCheckBox', () => {
 
     AddCheckBox(checkbox, task, listItem);
     checkbox.checked = true;
-    //trigger the event listener for the 'change' event on the checkbox element
+    // trigger the event listener for the 'change' event on the checkbox element
     checkbox.dispatchEvent(new Event('change'));
 
     expect(task.completed).toBe(true);

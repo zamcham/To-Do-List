@@ -56,7 +56,7 @@ export function renderTasks() {
     });
 
     label.addEventListener('blur', () => {
-      updateTaskValue(task,label);
+      updateTaskValue(task, label);
     });
 
     const deleteButton = document.createElement('button');
@@ -91,4 +91,3 @@ export function editTask(index, newDescription) {
   saveTasks(); // Update localStorage when task description is edited
   renderTasks(); // Re-render the list after editing task description
 }
-
