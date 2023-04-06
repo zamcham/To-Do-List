@@ -1,4 +1,7 @@
+/* eslint-disable import/no-mutable-exports */
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+/* eslint-enable import/no-mutable-exports */
+// Disabled because it gives error as a const since it's changed on line 23
 
 function saveTasks() {
   localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -15,7 +18,12 @@ export default function AddCheckBox(checkbox, task, listItem) {
 }
 
 const clearCompletedButton = document.getElementById('clearButton');
-clearCompletedButton.addEventListener('click', () => {
-  tasks = tasks.filter((task) => !task.completed);
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-});
+if (clearCompletedButton != null) {
+  clearCompletedButton.addEventListener('click', () => {
+    tasks = tasks.filter((task) => !task.completed);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    window.location.reload();
+  });
+}
+
+export { tasks, clearCompletedButton };

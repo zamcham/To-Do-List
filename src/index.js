@@ -1,6 +1,6 @@
 import './styles.css';
 import {
-  renderTasks, addTask, deleteTask,
+  renderTasks, addTask,
 } from './task.js';
 
 // Call renderTasks when the page loads to display existing tasks
@@ -18,10 +18,4 @@ input.addEventListener('keypress', (event) => {
       input.value = '';
     }
   }
-});
-
-// Add event listener for "Clear All Completed" button to delete all completed tasks
-const clearCompletedButton = document.querySelector('.completedButton');
-clearCompletedButton.addEventListener('click', () => {
-  deleteTask();
 });
