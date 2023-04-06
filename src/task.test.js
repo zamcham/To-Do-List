@@ -113,4 +113,39 @@ describe('AddCheckBox', () => {
   beforeEach(() => {
     localStorage.clear(); // Clear localStorage before each test
   });
+
+
+  test('it should update the task completed status when checkbox is checked/unchecked', () => {
+    const checkbox = document.createElement('input');
+    const task = { description: 'Task 1', completed: false };
+    const listItem = document.createElement('li');
+
+    AddCheckBox(checkbox, task, listItem);
+    checkbox.checked = true;
+    //trigger the event listener for the 'change' event on the checkbox element
+    checkbox.dispatchEvent(new Event('change'));
+
+    expect(task.completed).toBe(true);
+  });
+});
+
+describe('ClearCompletedTasks', () => {
+  beforeEach(() => {
+    localStorage.clear(); // Clear localStorage before each test
+  });
+
+  test('should remove completed tasks from the tasks array and localStorage', () => {
+    // Reset the tasks array to its initial state before each test
+    const task01 = { description: 'Task 1', completed: true, index: 0 };
+    const task02 = { description: 'Task 2', completed: false, index: 1 };
+    const task03 = { description: 'Task 3', completed: true, index: 2 };
+    localStorage.setItem('tasksObj', JSON.stringify([task01, task02, task03]));
+
+    const tasksToCheck = JSON.parse(localStorage.getItem('tasksObj'));
+    console.log(tasksToCheck);
+
+    ClearCompletedTasks(tasksToCheck);
+    expect(tasksToCheck).toHaveLength(1);
+    expect(tasksToCheck[0].completed).toEqual(false);
+  });
 });
