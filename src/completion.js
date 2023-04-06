@@ -29,5 +29,4 @@ if (clearCompletedButton != null) {
   });
 }
 
-
 export { tasks, clearCompletedButton };

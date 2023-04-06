@@ -1,6 +1,6 @@
 import 'jest-localstorage-mock';
 import { addTask, updateTaskValue } from './task.js';
-import AddCheckBox from './completion.js';
+import AddCheckBox, { ClearCompletedTasks } from './completion.js';
 
 global.TextEncoder = require('text-encoding').TextEncoder;
 const { JSDOM } = require('jsdom');
@@ -8,6 +8,13 @@ const { JSDOM } = require('jsdom');
 const dom = new JSDOM('<!DOCTYPE html><html><head></head><body></body></html>');
 global.window = dom.window;
 global.document = dom.window.document;
+
+beforeAll(() => {
+  Object.defineProperty(window, 'location', {
+    value: { reload: jest.fn() },
+    writable: true
+  });
+});
 
 document.body.innerHTML = `
   <body>
